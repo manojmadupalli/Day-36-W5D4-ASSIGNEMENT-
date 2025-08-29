@@ -1,0 +1,23 @@
+@model IEnumerable<Library.CodeFirst.Models.Book>
+@{
+    ViewData["Title"] = "Books";
+}
+<h1>Books</h1>
+<p><a class="btn btn-primary" href="/Books/Create">Create New</a></p>
+<table class="table">
+    <thead><tr><th>Title</th><th>Author</th><th>Genres</th><th></th></tr></thead>
+    <tbody>
+    @foreach(var b in Model) {
+        <tr>
+            <td>@b.Title</td>
+            <td>@b.Author?.Name</td>
+            <td>@(b.BookGenres != null ? string.Join(", ", b.BookGenres.Select(bg => bg.Genre?.Name)) : "-")</td>
+            <td>
+                <a href="/Books/Details/@b.BookId">Details</a> |
+                <a href="/Books/Edit/@b.BookId">Edit</a> |
+                <a href="/Books/Delete/@b.BookId">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

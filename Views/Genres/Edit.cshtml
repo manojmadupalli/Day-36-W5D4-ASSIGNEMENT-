@@ -1,0 +1,7 @@
+@model Library.CodeFirst.Models.Genre
+<h2>Edit Genre</h2>
+<form method="post">
+    <input type="hidden" name="GenreId" value="@Model.GenreId" />
+    <div class="mb-3"><label>Name</label><input class="form-control" name="Name" value="@Model.Name" /></div>
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

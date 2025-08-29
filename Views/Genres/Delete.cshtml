@@ -1,0 +1,7 @@
+@model Library.CodeFirst.Models.Genre
+<h2>Delete Genre</h2>
+<form method="post" asp-action="Delete">
+    <p>Delete @Model.Name?</p>
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-secondary" href="/Genres">Cancel</a>
+</form>

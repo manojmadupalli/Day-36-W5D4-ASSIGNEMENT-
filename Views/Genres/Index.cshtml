@@ -1,0 +1,6 @@
+@model IEnumerable<Library.CodeFirst.Models.Genre>
+<h1>Genres</h1>
+<p><a class="btn btn-primary" href="/Genres/Create">Create New</a></p>
+<ul>
+@foreach(var g in Model) { <li>@g.Name - <a href="/Genres/Edit/@g.GenreId">Edit</a> | <a href="/Genres/Delete/@g.GenreId">Delete</a></li> }
+</ul>

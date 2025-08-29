@@ -1,0 +1,5 @@
+@model Library.CodeFirst.Models.Book
+<h2>@Model.Title</h2>
+<p><strong>Author:</strong> @Model.Author?.Name</p>
+<p><strong>Genres:</strong> @(Model.BookGenres!=null? string.Join(", ", Model.BookGenres.Select(bg=>bg.Genre?.Name)) : "-")</p>
+<p><a href="/Books">Back to list</a></p>

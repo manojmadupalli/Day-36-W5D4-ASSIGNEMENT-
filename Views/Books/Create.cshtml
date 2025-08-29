@@ -1,0 +1,26 @@
+@model Library.CodeFirst.Models.Book
+@{
+    ViewData["Title"] = "Create Book";
+    var authors = ViewBag.Authors as List<Library.CodeFirst.Models.Author>;
+    var genres = ViewBag.Genres as List<Library.CodeFirst.Models.Genre>;
+}
+<h2>Create Book</h2>
+<form method="post">
+    <div class="mb-3">
+        <label>Title</label>
+        <input class="form-control" name="Title" />
+    </div>
+    <div class="mb-3">
+        <label>Author</label>
+        <select class="form-control" name="AuthorId">
+            @foreach(var a in authors) { <option value="@a.AuthorId">@a.Name</option> }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Genres (use Ctrl key to select multiple Genres)</label>
+        <select class="form-control" name="selectedGenres" multiple>
+            @foreach(var g in genres) { <option value="@g.GenreId">@g.Name</option> }
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Create</button>
+</form>

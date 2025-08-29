@@ -1,0 +1,29 @@
+@model Library.CodeFirst.Models.Book
+@{
+    ViewData["Title"] = "Edit Book";
+    var authors = ViewBag.Authors as List<Library.CodeFirst.Models.Author>;
+    var genres = ViewBag.Genres as List<Library.CodeFirst.Models.Genre>;
+    var selected = ViewBag.SelectedGenres as int[] ?? new int[0];
+}
+<h2>Edit Book</h2>
+<form method="post">
+    <input type="hidden" name="BookId" value="@Model.BookId" />
+    <div class="mb-3"><label>Title</label><input class="form-control" name="Title" value="@Model.Title" /></div>
+    <div class="mb-3">
+        <label>Author</label>
+        <select class="form-control" name="AuthorId">
+            @foreach(var a in authors) {
+                <option value="@a.AuthorId" selected="@(a.AuthorId==Model.AuthorId ? "selected" : null)">@a.Name</option>
+            }
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Genres</label>
+        <select class="form-control" name="selectedGenres" multiple>
+            @foreach(var g in genres) {
+                <option value="@g.GenreId"  "selected"=@(selected.Contains(g.GenreId))>@g.Name</option>
+            }
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

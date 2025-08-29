@@ -1,0 +1,7 @@
+@model Library.CodeFirst.Models.Book
+<h2>Delete</h2>
+<p>Are you sure you want to delete <strong>@Model.Title</strong>?</p>
+<form method="post" asp-action="Delete">
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <a class="btn btn-secondary" href="/Books">Cancel</a>
+</form>
